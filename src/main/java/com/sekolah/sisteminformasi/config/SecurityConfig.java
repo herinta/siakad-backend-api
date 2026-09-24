@@ -46,6 +46,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         // Endpoint Publik (Bebas Akses)
                         .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/sync/**").permitAll()
                         .requestMatchers("/api/status").permitAll()
                         .requestMatchers("/h2-console/**").permitAll()
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
