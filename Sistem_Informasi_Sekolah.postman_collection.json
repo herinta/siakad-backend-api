@@ -1,0 +1,147 @@
+{
+  "info": {
+    "name": "Sistem Informasi Sekolah API",
+    "description": "Postman Collection Lengkap untuk Backend Sistem Informasi Sekolah Spring Boot",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Authentication",
+      "item": [
+        {
+          "name": "Login Admin",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}"
+            },
+            "url": { "raw": "http://localhost:8080/api/auth/login", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "auth", "login"] }
+          }
+        },
+        {
+          "name": "Login Guru Budi",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"guru_budi\",\n  \"password\": \"guru123\"\n}"
+            },
+            "url": { "raw": "http://localhost:8080/api/auth/login", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "auth", "login"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Master Data",
+      "item": [
+        {
+          "name": "Get All Subjects",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": { "raw": "http://localhost:8080/api/subjects", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "subjects"] }
+          }
+        },
+        {
+          "name": "Get All Classrooms",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": { "raw": "http://localhost:8080/api/classrooms", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "classrooms"] }
+          }
+        },
+        {
+          "name": "Get All Teachers",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": { "raw": "http://localhost:8080/api/teachers", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "teachers"] }
+          }
+        },
+        {
+          "name": "Get All Students",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": { "raw": "http://localhost:8080/api/students", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "students"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Schedules (Penjadwalan)",
+      "item": [
+        {
+          "name": "Get All Schedules",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": { "raw": "http://localhost:8080/api/schedules", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "schedules"] }
+          }
+        },
+        {
+          "name": "Get My Teacher Schedule",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": { "raw": "http://localhost:8080/api/schedules/my-schedule", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "schedules", "my-schedule"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Reports & Transcripts",
+      "item": [
+        {
+          "name": "Get Rapor UTS Siswa 1",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": {
+              "raw": "http://localhost:8080/api/reports/midterm?studentId=1&academicYear=2026/2027&semester=1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "reports", "midterm"],
+              "query": [
+                { "key": "studentId", "value": "1" },
+                { "key": "academicYear", "value": "2026/2027" },
+                { "key": "semester", "value": "1" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Rapor Akhir Semester Siswa 1",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": {
+              "raw": "http://localhost:8080/api/reports/final?studentId=1&academicYear=2026/2027&semester=1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "reports", "final"],
+              "query": [
+                { "key": "studentId", "value": "1" },
+                { "key": "academicYear", "value": "2026/2027" },
+                { "key": "semester", "value": "1" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Transkrip Nilai Kumulatif SMP Siswa 1",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": { "raw": "http://localhost:8080/api/reports/transcript/1", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "reports", "transcript", "1"] }
+          }
+        }
+      ]
+    }
+  ]
+}
